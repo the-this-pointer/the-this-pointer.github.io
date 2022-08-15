@@ -130,6 +130,47 @@ index b14b307..ba65970 100644
  })
  
  const handlePageChange = (num): void => {
+diff --git a/node_modules/vuepress-theme-knzn/lib/client/layouts/PostLayout.vue b/node_modules/vuepress-theme-knzn/lib/client/layouts/PostLayout.vue
+index 35e69a7..af03f5c 100644
+--- a/node_modules/vuepress-theme-knzn/lib/client/layouts/PostLayout.vue
++++ b/node_modules/vuepress-theme-knzn/lib/client/layouts/PostLayout.vue
+@@ -1,6 +1,5 @@
+ <script setup lang="ts">
+ import Header from '../components/Header.vue'
+-import PostAside from '../components/PostAside.vue'
+ import CardTocs from '../components/CardTocs.vue'
+ import BackToTop from '../components/BackToTop.vue'
+ import PostInfo from '../components/PostInfo.vue'
+@@ -13,21 +12,13 @@ import { onBeforeUnmount, onMounted, ref } from 'vue'
+ 
+ const pageData = usePageData() as Ref<ThemePageData>
+ 
+-const isAsideShow = ref(false)
+ const isTocsShow = ref(false)
+ 
+-const handleAside = (): void => {
+-  isAsideShow.value = !isAsideShow.value
+-}
+-
+ const handleTocs = (): void => {
+   isTocsShow.value = !isTocsShow.value
+ }
+ 
+ const handleContainerClick = (): void => {
+-  if (isAsideShow.value) {
+-    isAsideShow.value = false
+-  }
+   if (isTocsShow.value) {
+     isTocsShow.value = false
+   }
+@@ -48,7 +39,6 @@ onBeforeUnmount(() => {
+ <template>
+   <Header />
+   <main class="theme-container theme-post-container">
+-    <PostAside :class="{ active: isAsideShow }" />
+     <div class="theme-content post-container">
+       <!-- 文章内容 -->
+       <div class="post-wrapper">
 diff --git a/node_modules/vuepress-theme-knzn/lib/client/layouts/SearchLayout.vue b/node_modules/vuepress-theme-knzn/lib/client/layouts/SearchLayout.vue
 index 8d1e1dd..05c99a1 100644
 --- a/node_modules/vuepress-theme-knzn/lib/client/layouts/SearchLayout.vue
