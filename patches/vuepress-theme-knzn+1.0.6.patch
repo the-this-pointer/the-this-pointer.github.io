@@ -188,6 +188,22 @@ index 8d1e1dd..05c99a1 100644
        </div>
      </Transition>
    </div>
+diff --git a/node_modules/vuepress-theme-knzn/lib/client/styles/footer.scss b/node_modules/vuepress-theme-knzn/lib/client/styles/footer.scss
+index f764613..1ecd68f 100644
+--- a/node_modules/vuepress-theme-knzn/lib/client/styles/footer.scss
++++ b/node_modules/vuepress-theme-knzn/lib/client/styles/footer.scss
+@@ -49,7 +49,10 @@
+   }
+ }
+ 
+-.theme-common-footer,
++.theme-common-footer {
++  display: flex;
++}
++
+ .home-comment-footer {
+   display: none;
+ }
 diff --git a/node_modules/vuepress-theme-knzn/lib/client/styles/posts.scss b/node_modules/vuepress-theme-knzn/lib/client/styles/posts.scss
 index 8040f4f..7039f68 100644
 --- a/node_modules/vuepress-theme-knzn/lib/client/styles/posts.scss
