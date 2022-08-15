@@ -24,6 +24,19 @@ index 3e27e13..b313dec 100644
  
  const themeOptions = useThemeOptions()
  const tags = ref<LabelItem[]>(getInfoFromPages(props.pages, 'tags'))
+diff --git a/node_modules/vuepress-theme-knzn/lib/client/components/CardTocs.vue b/node_modules/vuepress-theme-knzn/lib/client/components/CardTocs.vue
+index 450a230..7502f71 100644
+--- a/node_modules/vuepress-theme-knzn/lib/client/components/CardTocs.vue
++++ b/node_modules/vuepress-theme-knzn/lib/client/components/CardTocs.vue
+@@ -4,7 +4,7 @@
+     <header>
+       <h3 class="title">
+         <i class="iconfont icon-categorynormal"></i>
+-        <span> 目录 </span>
++        <span> Contents </span>
+       </h3>
+     </header>
+     <Toc />
 diff --git a/node_modules/vuepress-theme-knzn/lib/client/components/Navbar.vue b/node_modules/vuepress-theme-knzn/lib/client/components/Navbar.vue
 index 2f2db18..fd5dfdb 100644
 --- a/node_modules/vuepress-theme-knzn/lib/client/components/Navbar.vue
@@ -86,6 +99,37 @@ index 5c7aab1..eae670f 100644
      </div>
    </div>
  </template>
+diff --git a/node_modules/vuepress-theme-knzn/lib/client/layouts/HomeLayout.vue b/node_modules/vuepress-theme-knzn/lib/client/layouts/HomeLayout.vue
+index b14b307..ba65970 100644
+--- a/node_modules/vuepress-theme-knzn/lib/client/layouts/HomeLayout.vue
++++ b/node_modules/vuepress-theme-knzn/lib/client/layouts/HomeLayout.vue
+@@ -37,12 +37,25 @@ const isActiveCls = computed(() => assetScrollToTop(scrollTop.value))
+ 
+ const pages = usePages()
+ 
++const convertPageDate = (page) => {
++  return { ...page, date: new Date(page.frontmatter.date) };
++}
++
++const dateCompare = (desc = true) => {
++  return function(a, b) {
++    return -1;
++  };
++}
++
+ const perPage = themeOptions.value.perPage || 10
+ const page = ref(1)
+ const total = ref(pages.length)
+ const pageList = computed(() => {
+   const skip = (page.value - 1) * perPage
+-  return pages.slice(skip, skip + perPage)
++  return pages
++    .map(convertPageDate)
++    .sort(dateCompare())
++    .slice(skip, skip + perPage)
+ })
+ 
+ const handlePageChange = (num): void => {
 diff --git a/node_modules/vuepress-theme-knzn/lib/client/layouts/SearchLayout.vue b/node_modules/vuepress-theme-knzn/lib/client/layouts/SearchLayout.vue
 index 8d1e1dd..05c99a1 100644
 --- a/node_modules/vuepress-theme-knzn/lib/client/layouts/SearchLayout.vue
