@@ -4,7 +4,7 @@ import { particlesOptions } from './particlesOptions'
 
 export default defineUserConfig({
   lang: 'en-US',
-  title: 'This Ptr {Personal Blog}',
+  title: 'This Ptr <Personal Blog/>',
   description: 'Reza Kiani\'s Personal Blog',
   dest: './docs',
   // debug: true,

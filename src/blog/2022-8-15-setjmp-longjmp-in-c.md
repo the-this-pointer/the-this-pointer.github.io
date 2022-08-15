@@ -1,10 +1,12 @@
 ---
-title: Using setjmp and longjmp in C
+title: Using "setjmp" and "longjmp" in C
 author: Reza
 date: '2022-08-15'
 categories:
   - C
   - C++
+tags:
+  - programming
 ---
 
 Two less known C programming language methods are `setjmp` and `longjmp`. They are defined in `setjmp.h` header file or `csetjmp` in C++ standard library.
@@ -16,7 +18,7 @@ Two less known C programming language methods are `setjmp` and `longjmp`. They a
 setjmp is used to save the current execution context into a `jmp_buf`, and longjmp uses this buffer to restore the saved application state.
 Think about what you can do with these methods! You can use it for exception handling in C, which hasn't `try`/`catch` blocks or developing a coroutine library.
 
-## Example1: Exception Handling
+## Example 1: Exception Handling
 ``` c
 #include <stdio.h>
 #include <math.h>
