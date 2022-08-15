@@ -1,5 +1,5 @@
 ---
-title: Using "setjmp" and "longjmp" in C
+title: Using "setjmp" and "longjmp" in C - Part 1
 author: Reza
 date: '2022-08-15'
 categories:
@@ -12,6 +12,12 @@ tags:
 Two less known C programming language methods are `setjmp` and `longjmp`. They are defined in `setjmp.h` header file or `csetjmp` in C++ standard library.
 
 <!-- more -->
+
+::: details
+This is the first article about the `setjmp` method usage series. The list will be updated as soon as new articles are added.
+
+> *Using "setjmp" and "longjmp" in C - Part 1*
+:::
 
 ## Usage
 
