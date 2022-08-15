@@ -1,0 +1,153 @@
+diff --git a/node_modules/vuepress-theme-knzn/lib/client/components/CardCategories.vue b/node_modules/vuepress-theme-knzn/lib/client/components/CardCategories.vue
+index 72aa7dd..18dd9ff 100644
+--- a/node_modules/vuepress-theme-knzn/lib/client/components/CardCategories.vue
++++ b/node_modules/vuepress-theme-knzn/lib/client/components/CardCategories.vue
+@@ -19,7 +19,7 @@ const props = defineProps({
+   },
+ })
+ 
+-const title = props.all ? '全部分类' : '热门分类'
++const title = props.all ? 'Categories' : 'Top Categories'
+ 
+ const themeOptions = useThemeOptions()
+ const categories = ref<LabelItem[]>(getInfoFromPages(props.pages, 'categories'))
+diff --git a/node_modules/vuepress-theme-knzn/lib/client/components/CardTags.vue b/node_modules/vuepress-theme-knzn/lib/client/components/CardTags.vue
+index 3e27e13..b313dec 100644
+--- a/node_modules/vuepress-theme-knzn/lib/client/components/CardTags.vue
++++ b/node_modules/vuepress-theme-knzn/lib/client/components/CardTags.vue
+@@ -20,7 +20,7 @@ const props = defineProps({
+   },
+ })
+ 
+-const title = props.all ? '全部标签' : '热门标签'
++const title = props.all ? 'All Tags' : 'Popular Tags'
+ 
+ const themeOptions = useThemeOptions()
+ const tags = ref<LabelItem[]>(getInfoFromPages(props.pages, 'tags'))
+diff --git a/node_modules/vuepress-theme-knzn/lib/client/components/Navbar.vue b/node_modules/vuepress-theme-knzn/lib/client/components/Navbar.vue
+index 2f2db18..fd5dfdb 100644
+--- a/node_modules/vuepress-theme-knzn/lib/client/components/Navbar.vue
++++ b/node_modules/vuepress-theme-knzn/lib/client/components/Navbar.vue
+@@ -76,7 +76,7 @@ onBeforeUnmount(() => {
+         class="nav-link nav-item animate__animated animate__slideInRight search-link"
+       >
+         <NavbarItem
+-          :item="{ text: '搜索', link: '/search/' }"
++          :item="{ text: 'Search', link: '/search/' }"
+           :icon="'icon-search'"
+         />
+       </li>
+diff --git a/node_modules/vuepress-theme-knzn/lib/client/components/PostItem.vue b/node_modules/vuepress-theme-knzn/lib/client/components/PostItem.vue
+index 87539b7..7f013ef 100644
+--- a/node_modules/vuepress-theme-knzn/lib/client/components/PostItem.vue
++++ b/node_modules/vuepress-theme-knzn/lib/client/components/PostItem.vue
+@@ -23,13 +23,13 @@ const isDarkMode = useDarkMode()
+ // 文章
+ const { post, postPosition } = toRefs(props)
+ const { postImage } = getPostInfo(post.value)
+-
++console.log(postImage)
+ const themeOptions = useThemeOptions()
+ 
+ const postSrc = computed(() => {
+-  const { postImage: themePostImage, darkPostImage } = themeOptions.value
++  const { themePostImage, darkPostImage } = themeOptions.value
+   return (
+-    postImage ||
++    postImage  ||
+     (isDarkMode.value ? darkPostImage : themePostImage) ||
+     themePostImage
+   )
+@@ -65,7 +65,7 @@ const postStyle = computed(() => {
+       <div class="post-excerpt" v-html="post.excerpt"></div>
+       <footer class="post-footer">
+         <RouterLink :to="post.path">
+-          阅读更多 <i class="iconfont icon-next"></i>
++          Read More <i class="iconfont icon-next"></i>
+         </RouterLink>
+       </footer>
+     </article>
+diff --git a/node_modules/vuepress-theme-knzn/lib/client/components/PostList.vue b/node_modules/vuepress-theme-knzn/lib/client/components/PostList.vue
+index 5c7aab1..eae670f 100644
+--- a/node_modules/vuepress-theme-knzn/lib/client/components/PostList.vue
++++ b/node_modules/vuepress-theme-knzn/lib/client/components/PostList.vue
+@@ -20,12 +20,12 @@ const { pages } = toRefs(props)
+         v-for="(post, index) of pages"
+         :key="post.key"
+         :post="post"
+-        :post-position="index % 2 === 0 ? 'right' : 'left'"
++        :post-position="'right'"
+       />
+     </template>
+     <div v-else class="empty-container">
+       <i class="iconfont icon-empty"></i>
+-      <span> 暂无匹配内容 </span>
++      <span> No posts </span>
+     </div>
+   </div>
+ </template>
+diff --git a/node_modules/vuepress-theme-knzn/lib/client/layouts/SearchLayout.vue b/node_modules/vuepress-theme-knzn/lib/client/layouts/SearchLayout.vue
+index 8d1e1dd..05c99a1 100644
+--- a/node_modules/vuepress-theme-knzn/lib/client/layouts/SearchLayout.vue
++++ b/node_modules/vuepress-theme-knzn/lib/client/layouts/SearchLayout.vue
+@@ -96,10 +96,10 @@ const handleSearch = (): void => {
+           v-model.trim="searchText"
+           type="text"
+           class="search-input"
+-          placeholder="请输入搜索内容..."
++          placeholder="Entere search content..."
+           @change.enter="handleSearch"
+         />
+-        <button class="search-btn" @click="handleSearch">搜索</button>
++        <button class="search-btn" @click="handleSearch">Search</button>
+       </div>
+     </Transition>
+   </div>
+diff --git a/node_modules/vuepress-theme-knzn/lib/client/styles/posts.scss b/node_modules/vuepress-theme-knzn/lib/client/styles/posts.scss
+index 8040f4f..7039f68 100644
+--- a/node_modules/vuepress-theme-knzn/lib/client/styles/posts.scss
++++ b/node_modules/vuepress-theme-knzn/lib/client/styles/posts.scss
+@@ -5,7 +5,7 @@
+     margin-bottom: 30px;
+     padding: 1rem 1.5rem;
+     position: relative;
+-    background-image: url('../images/post.svg');
++    // background-image: url('../images/post.svg');
+     // &:first-child {
+     //   margin-top: 0;
+     // }
+@@ -22,7 +22,7 @@
+ 
+     .post-section {
+       position: relative;
+-      width: 80%;
++      // width: 80%;
+       z-index: 1;
+     }
+ 
+@@ -73,7 +73,7 @@
+         );
+       }
+       .post-section {
+-        left: 20%;
++        // left: 20%;
+       }
+     }
+ 
+diff --git a/node_modules/vuepress-theme-knzn/lib/node/utils/index.js b/node_modules/vuepress-theme-knzn/lib/node/utils/index.js
+index 3d6f9bc..1e4ace7 100644
+--- a/node_modules/vuepress-theme-knzn/lib/node/utils/index.js
++++ b/node_modules/vuepress-theme-knzn/lib/node/utils/index.js
+@@ -92,9 +92,9 @@ var addExtraPages = function (app) { return __awaiter(void 0, void 0, void 0, fu
+         switch (_a.label) {
+             case 0:
+                 extraPages = [
+-                    { path: '/search/', title: '搜索' },
+-                    { path: '/tags/', title: '标签' },
+-                    { path: '/categories/', title: '分类' },
++                    { path: '/search/', title: 'Search' },
++                    { path: '/tags/', title: 'Tags' },
++                    { path: '/categories/', title: 'Categories' },
+                 ];
+                 _loop_1 = function (item) {
+                     var page;

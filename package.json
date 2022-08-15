@@ -1,0 +1,22 @@
+{
+  "name": "ProgrammingNotes",
+  "version": "1.0.0",
+  "description": "Reza Kiani's Blog",
+  "main": "index.js",
+  "repository": "https://github.com/rkm7232/rkm7232.github.io",
+  "author": "Reza Kiani <rkm7232@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "patch-package",
+    "docs:dev": "vuepress dev src",
+    "docs:build": "vuepress build src"
+  },
+  "devDependencies": {
+    "vuepress": "^2.0.0-beta.49",
+    "vuepress-theme-knzn": "^1.0.6"
+  },
+  "dependencies": {
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0"
+  }
+}
