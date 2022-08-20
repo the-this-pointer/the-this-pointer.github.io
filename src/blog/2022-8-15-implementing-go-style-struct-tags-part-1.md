@@ -19,7 +19,7 @@ This is the first article of the series. The list will be updated as soon as new
 > *Implementing go style struct tags in C++ - Part 1*
 :::
 
-## What do we want to do?!
+## What Do We Want To Do?!
 
 There is nothing special about the `struct` itself. It's the reason I attached a reference link for people who want to learn more about it, and I didn't mention all of its details here. For the sake of briefness, I point to the main part we are going to do: **"struct tags"**.
 
