@@ -7,7 +7,7 @@ categories:
 tags:
   - programming
 ---
-Let's create Microsoft Windows-specific socket methods.
+In the previous part, we discussed what and how we want to implement the library generally. In this post we are going to implement bottom-layer socket methods.
 
 <!-- more -->
 
@@ -17,13 +17,16 @@ This is a part of implementing a socket network library series. The list will be
 <a href="implementing-another-socket-library-in-cpp-part-1.html" target="_blank">Implementing another socket library in C++ - Part 1</a>.
 
 > *Implementing another socket library in C++ - Part 2*
+
+<a href="implementing-another-socket-library-in-cpp-part-3.html" target="_blank">Implementing another socket library in C++ - Part 3</a>.
+
 :::
 
-## Implementing Windows Specific Methods
+## Implementing Bottom-Layer Methods
 
-In the previous part, we discussed what and how we want to implement the library generally. In this part, we will create a new project for the library and add a file named `net_win.h` for Windows-specific socket methods. To use these methods, I will link the `ws2_32` (named: `Winsock` library) to the executable in `CMakeLists.txt`.
+In this part, we will create a new project for the library and add a file named `net_p.h` for bottom-layer socket methods. To use these methods, I will link the `ws2_32` (named: `Winsock` library) to the executable in `CMakeLists.txt`, this step is necessary for windows only, and we will return to link some other libraries for windows and unix later.
 
-I add a namespace to group the methods in the new file I've just created. When I want to implement the Unix methods, I should copy this file, rename it to something like `net_unix.h`, and modify it.
+I add a namespace to group the methods in the new file I've just created. When I want to implement the Unix methods, I will use macros to handle all of differences between Windows and Unix in one file and split the blocks for each platform.
 
 One thing about the Winsock library is that it needs initialization  (`WSAStartup`) at the program's start. It initializes the library DLL and ensures that the Winsock API is supported by the platform and cleanup (`WSACleanup`) at the end of the code. Also, we can get the occurred error codes with the method `WSAGetLastError`. We can use the error code to get a description from another windows API method if it's necessary.
 
