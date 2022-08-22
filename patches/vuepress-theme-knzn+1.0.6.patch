@@ -1,3 +1,16 @@
+diff --git a/node_modules/vuepress-theme-knzn/lib/client/components/CardAvatar.vue b/node_modules/vuepress-theme-knzn/lib/client/components/CardAvatar.vue
+index 4b23624..81d4ecf 100644
+--- a/node_modules/vuepress-theme-knzn/lib/client/components/CardAvatar.vue
++++ b/node_modules/vuepress-theme-knzn/lib/client/components/CardAvatar.vue
+@@ -8,7 +8,7 @@ const { avatarSrc, blogger, slogan } = useBloger()
+ <template>
+   <div class="avatar-wrapper card-box">
+     <div class="avatar">
+-      <img :src="withBase(avatarSrc || '')" alt="头像" title="头像" />
++      <img :src="withBase(avatarSrc || '')" alt="Avatar" title="Avatar" />
+     </div>
+     <div class="blogger">
+       <div class="name">{{ blogger }}</div>
 diff --git a/node_modules/vuepress-theme-knzn/lib/client/components/CardCategories.vue b/node_modules/vuepress-theme-knzn/lib/client/components/CardCategories.vue
 index 72aa7dd..18dd9ff 100644
 --- a/node_modules/vuepress-theme-knzn/lib/client/components/CardCategories.vue
@@ -50,16 +63,71 @@ index 2f2db18..fd5dfdb 100644
            :icon="'icon-search'"
          />
        </li>
+diff --git a/node_modules/vuepress-theme-knzn/lib/client/components/NavbarBloger.vue b/node_modules/vuepress-theme-knzn/lib/client/components/NavbarBloger.vue
+index 31f94dd..3be02b4 100644
+--- a/node_modules/vuepress-theme-knzn/lib/client/components/NavbarBloger.vue
++++ b/node_modules/vuepress-theme-knzn/lib/client/components/NavbarBloger.vue
+@@ -24,16 +24,16 @@ const { avatarSrc, blogger, slogan } = useBloger()
+ <template>
+   <div class="navbar-blogger">
+     <div class="avatar">
+-      <img :src="withBase(avatarSrc || '')" alt="头像" title="头像" />
++      <img :src="withBase(avatarSrc || '')" alt="Avatar" title="Avatar" />
+     </div>
+     <div class="types">
+       <RouterLink to="/categories/?category=all" class="type">
+-        <span class="text">分类</span>
++        <span class="text">Categories</span>
+         <span class="num">{{ categoriesPostNum }}</span>
+       </RouterLink>
+       <div class="divider"></div>
+       <RouterLink to="/tags/?tag=all" class="type">
+-        <span class="text">标签</span>
++        <span class="text">Tags</span>
+         <span class="num">{{ tagsPostNum }}</span>
+       </RouterLink>
+     </div>
+diff --git a/node_modules/vuepress-theme-knzn/lib/client/components/PostInfo.vue b/node_modules/vuepress-theme-knzn/lib/client/components/PostInfo.vue
+index db9bb75..d9d3eff 100644
+--- a/node_modules/vuepress-theme-knzn/lib/client/components/PostInfo.vue
++++ b/node_modules/vuepress-theme-knzn/lib/client/components/PostInfo.vue
+@@ -15,15 +15,15 @@ const { author, date, tags, categories } = getPostInfo(props.post)
+ <template>
+   <div class="post-info">
+     <span class="post-info-item">
+-      <i class="iconfont icon-avatar" title="作者"></i>
++      <i class="iconfont icon-avatar" title="Author"></i>
+       {{ author }}</span
+     >
+     <span class="post-info-item">
+-      <i class="iconfont icon-datetime" title="日期"></i>
++      <i class="iconfont icon-datetime" title="Date"></i>
+       {{ date }}</span
+     >
+     <span v-if="categories!.length" class="post-info-item">
+-      <i class="iconfont icon-categorynormal" title="分类"></i>
++      <i class="iconfont icon-categorynormal" title="Categories"></i>
+       <RouterLink
+         v-for="text of categories"
+         :key="text"
+@@ -33,7 +33,7 @@ const { author, date, tags, categories } = getPostInfo(props.post)
+       >
+     </span>
+     <span v-if="tags!.length" class="post-info-item">
+-      <i class="iconfont icon-tag" title="标签"></i>
++      <i class="iconfont icon-tag" title="Tags"></i>
+       <RouterLink
+         v-for="text of tags"
+         :key="text"
 diff --git a/node_modules/vuepress-theme-knzn/lib/client/components/PostItem.vue b/node_modules/vuepress-theme-knzn/lib/client/components/PostItem.vue
-index 87539b7..7f013ef 100644
+index 87539b7..25021cd 100644
 --- a/node_modules/vuepress-theme-knzn/lib/client/components/PostItem.vue
 +++ b/node_modules/vuepress-theme-knzn/lib/client/components/PostItem.vue
-@@ -23,13 +23,13 @@ const isDarkMode = useDarkMode()
+@@ -23,13 +23,12 @@ const isDarkMode = useDarkMode()
  // 文章
  const { post, postPosition } = toRefs(props)
  const { postImage } = getPostInfo(post.value)
 -
-+console.log(postImage)
  const themeOptions = useThemeOptions()
  
  const postSrc = computed(() => {
@@ -71,7 +139,7 @@ index 87539b7..7f013ef 100644
      (isDarkMode.value ? darkPostImage : themePostImage) ||
      themePostImage
    )
-@@ -65,7 +65,7 @@ const postStyle = computed(() => {
+@@ -65,7 +64,7 @@ const postStyle = computed(() => {
        <div class="post-excerpt" v-html="post.excerpt"></div>
        <footer class="post-footer">
          <RouterLink :to="post.path">
