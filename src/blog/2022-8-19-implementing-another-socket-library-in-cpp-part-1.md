@@ -1,6 +1,6 @@
 ---
 title: Implementing another socket library in C++ - Part 1
-author: Reza
+author: Rsomething
 date: '2022-08-19'
 categories:
   - C++
@@ -35,5 +35,10 @@ And the last point, we have a `select` method that can be used with a blocking s
 
 ## What Do We Want To Do?
 We will write a `multi-platform` coding library for `Windows` and `Unix`. We will start coding with basic socket commands and implement a class for the socket connection. After that, we will write two classes for the server and client and complete the code with useful functionalities like `thread-safe` queues and `load-balancing` methods.
+
+::: tip
+You can watch what I've done in this 
+<a href="https://github.com/the-this-pointer/network-library" target="_blank">Github repo</a>.
+:::
 
 <!-- more -->

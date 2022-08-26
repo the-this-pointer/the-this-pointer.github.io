@@ -1,10 +1,9 @@
 ---
 title: Implementing go style "struct tags" in C++ - Part 1
-author: Reza
+author: Rsomething
 date: '2022-08-15'
 categories:
   - C++
-  - Golang
 tags:
   - programming
 ---
@@ -17,6 +16,8 @@ If you worked with the Golang programming language before, you have faced the us
 This is the first article of the series. The list will be updated as soon as new articles are added.
 
 > *Implementing go style struct tags in C++ - Part 1*
+
+<a href="implementing-go-style-struct-tags-part-2.html" target="_blank">Implementing go style "struct tags" in C++ - Part 2</a>.
 :::
 
 ## What Do We Want To Do?!

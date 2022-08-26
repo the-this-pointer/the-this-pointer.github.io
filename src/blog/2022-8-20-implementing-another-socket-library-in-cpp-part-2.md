@@ -1,6 +1,6 @@
 ---
 title: Implementing another socket library in C++ - Part 2
-author: Reza
+author: Rsomething
 date: '2022-08-20'
 categories:
   - C++
@@ -231,5 +231,10 @@ One other method to prevent code duplication is:
 ```
 
 So far, we have implemented `TCP`, `blocking` methods only, and results for the `non-blocking` sockets will be different.
+
+::: tip
+You can watch what I've done in this 
+<a href="https://github.com/the-this-pointer/network-library" target="_blank">Github repo</a>.
+:::
 
 <!-- more -->

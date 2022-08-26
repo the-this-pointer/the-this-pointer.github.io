@@ -1,6 +1,6 @@
 ---
 title: Using "setjmp" and "longjmp" in C - Part 1
-author: Reza
+author: Rsomething
 date: '2022-08-15'
 categories:
   - C

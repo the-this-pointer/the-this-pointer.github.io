@@ -1,6 +1,6 @@
 ---
 title: Hello World
-author: Reza
+author: Rsomething
 date: '2022-08-12'
 ---
 
