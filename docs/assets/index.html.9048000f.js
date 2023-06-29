@@ -1,0 +1,1 @@
+import{_ as e,o as t,c,a as _}from"./app.d3725a3c.js";const n={},o=_("p",null,"Search",-1),a=[o];function r(s,l){return t(),c("div",null,a)}var i=e(n,[["render",r],["__file","index.html.vue"]]);export{i as default};
