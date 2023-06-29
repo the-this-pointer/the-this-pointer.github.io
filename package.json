@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Reza Kiani's Blog",
   "main": "index.js",
-  "repository": "https://github.com/rkm7232/rkm7232.github.io",
+  "repository": "https://github.com/the-this-pointer/the-this-pointer.github.io",
   "author": "Reza Kiani <rkm7232@gmail.com>",
   "license": "MIT",
   "scripts": {
