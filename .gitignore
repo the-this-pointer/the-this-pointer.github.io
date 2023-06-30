@@ -1,4 +1,4 @@
-'node_modules' 
-'docs' 
-'.temp' 
-'.cache' 
+docs
+.temp
+.cache
+node_modules

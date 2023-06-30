@@ -1,5 +1,6 @@
 import { defineUserConfig } from 'vuepress'
 import KnznTheme from 'vuepress-theme-knzn'
+import katexPlugin from '@renovamen/vuepress-plugin-katex'
 import { particlesOptions } from './particlesOptions'
 
 export default defineUserConfig({
@@ -7,6 +8,9 @@ export default defineUserConfig({
   title: 'Rsomething <Personal Blog/>',
   description: 'Rsomething\'s Personal Blog',
   dest: './docs',
+  plugins: [
+    katexPlugin()
+  ],
   // debug: true,
   head: [
     [
@@ -44,7 +48,7 @@ export default defineUserConfig({
       { link: 'https://github.com/the-this-pointer/', icon: 'github' },
     ],
 	beian: 'With ❤️ From Iran',
-  beianUrl: 'https://thisptr.com',
+  beianUrl: 'https://the-this-pointer.github.io',
   perPage: 10,
   maxCategories: 6,
   maxTags: 10,
