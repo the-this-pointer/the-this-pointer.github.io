@@ -1,0 +1,29 @@
+import{_ as n,o as s,c as a,b as e}from"./app.0a5d4aa8.js";const t={},o=e(`<p>A user-defined literal is a suffix for an expression to create a user-defined type.</p><h2 id="what-is-it" tabindex="-1"><a class="header-anchor" href="#what-is-it" aria-hidden="true">#</a> What is it?</h2><p>A user-defined literal is a literal operator, and it can be defined just like some other function in C++ 11; it can be overloaded and can accept some types for parameter list (not all of them!), something like this:</p><div class="language-cpp ext-cpp line-numbers-mode"><pre class="language-cpp"><code><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;any&gt;</span></span>
+
+<span class="token keyword">unsigned</span> <span class="token keyword">int</span> <span class="token keyword">operator</span> <span class="token string">&quot;&quot;</span><span class="token function">_km</span><span class="token punctuation">(</span><span class="token keyword">long</span> <span class="token keyword">double</span> distance<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token keyword">return</span> distance <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token keyword">operator</span><span class="token string">&quot;&quot;</span> <span class="token function">_cout</span> <span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> str<span class="token punctuation">,</span> std<span class="token double-colon punctuation">::</span>size_t<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;string: &quot;</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>string<span class="token punctuation">{</span>str<span class="token punctuation">}</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// overload sample</span>
+<span class="token keyword">void</span> <span class="token keyword">operator</span><span class="token string">&quot;&quot;</span> <span class="token function">_cout</span> <span class="token punctuation">(</span><span class="token keyword">long</span> <span class="token keyword">double</span> distance<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;distance: &quot;</span> <span class="token operator">&lt;&lt;</span> distance <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment">//usage exmaple</span>
+   <span class="token keyword">unsigned</span> <span class="token keyword">int</span> distanceInKm <span class="token operator">=</span> <span class="token number">12.0</span>_km<span class="token punctuation">;</span>
+
+   <span class="token keyword">operator</span> <span class="token string">&quot;&quot;</span><span class="token function">_cout</span><span class="token punctuation">(</span>distanceInKm<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token string">&quot;hi!&quot;</span>_cout<span class="token punctuation">;</span>
+   <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="custom-container tip"><p class="custom-container-title">TIP</p><p>I planned this feature in my simple logger library, which you can find it <a href="https://github.com/the-this-pointer/log-library" target="_blank">here</a>.</p></div>`,5),p=[o];function i(c,l){return s(),a("div",null,p)}var u=n(t,[["render",i],["__file","user-defined-literals-in-cpp.html.vue"]]);export{u as default};
