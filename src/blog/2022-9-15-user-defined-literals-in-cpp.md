@@ -46,8 +46,8 @@ void operator"" _cout (long double distance)
  ```
 
 ::: tip
-It's a good feature I planned to use in my simple logger library. You can see that in this
-<a href="https://github.com/the-this-pointer/log-library" target="_blank">Github repo</a>.
+I planned this feature in my simple logger library, which you can find it 
+<a href="https://github.com/the-this-pointer/log-library" target="_blank">here</a>.
 :::
 
 <!-- more -->
