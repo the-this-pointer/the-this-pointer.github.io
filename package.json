@@ -16,8 +16,8 @@
     "vuepress-theme-knzn": "^1.0.6"
   },
   "dependencies": {
-    "@renovamen/vuepress-plugin-katex": "^2.0.0-alpha.26",
-    "patch-package": "^6.4.7",
+    "@renovamen/vuepress-plugin-katex": "^0.2.0",
+    "patch-package": "^7.0.2",
     "postinstall-postinstall": "^2.1.0",
     "vuepress-plugin-mathjax": "^1.2.8"
   }
