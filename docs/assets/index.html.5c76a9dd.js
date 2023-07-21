@@ -1,1 +1,0 @@
-import{_ as e,o as t,c as o,a as _}from"./app.0a5d4aa8.js";const c={},n=_("p",null,"Categories",-1),s=[n];function a(r,l){return t(),o("div",null,s)}var d=e(c,[["render",a],["__file","index.html.vue"]]);export{d as default};
