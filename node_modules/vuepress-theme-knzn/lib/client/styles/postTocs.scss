@@ -1,0 +1,45 @@
+.post-tocs {
+  width: var(--aside-width);
+  margin-left: 15px;
+  position: sticky;
+  top: 90px;
+  transition: var(--t-transform);
+
+  .vuepress-toc-list {
+    padding-left: 12px;
+  }
+
+  .vuepress-toc-link {
+    color: var(--color-fg-muted);
+    position: relative;
+
+    &.active {
+      color: var(--color-accent-fg);
+      &::before {
+        @include item-active-label();
+        left: -10px;
+      }
+    }
+  }
+
+  .vuepress-toc-item {
+    margin-bottom: 8px;
+  }
+
+  @media (max-width: $MQNarrow) {
+    position: fixed;
+    right: 0;
+    top: var(--navbar-height);
+    height: 100vh;
+    overflow: auto;
+    border-radius: 0;
+    border-left: 1px solid var(--color-border-default);
+    z-index: 99;
+    width: 17.1rem;
+    transform: translateX(100%);
+
+    &.active {
+      transform: translateX(0);
+    }
+  }
+}
