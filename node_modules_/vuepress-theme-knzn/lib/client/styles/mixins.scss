@@ -1,0 +1,63 @@
+@mixin arrow(
+  $direction,
+  $color: var(--color-fg-default),
+  $size: 6px,
+  $edge: 4px
+) {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  @if $direction == up {
+    border: {
+      left: $edge solid transparent;
+      right: $edge solid transparent;
+      bottom: $size solid $color;
+    }
+  }
+
+  @if $direction == down {
+    border: {
+      left: $edge solid transparent;
+      right: $edge solid transparent;
+      top: $size solid $color;
+    }
+  }
+
+  @if $direction == right {
+    border: {
+      top: $edge solid transparent;
+      bottom: $edge solid transparent;
+      left: $size solid $color;
+    }
+  }
+
+  @if $direction == left {
+    border: {
+      top: $edge solid transparent;
+      bottom: $edge solid transparent;
+      right: $size solid $color;
+    }
+  }
+}
+
+@mixin navbar-base {
+  height: var(--navbar-height);
+  background-color: var(--color-canvas-default);
+  box-shadow: 0 0 var(--navbar-height) var(--color-border-default);
+}
+
+@mixin flex-middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin item-active-label {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background-color: var(--color-accent-fg);
+  display: block;
+}
