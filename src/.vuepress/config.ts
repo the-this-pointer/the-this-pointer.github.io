@@ -44,8 +44,9 @@ export default defineUserConfig({
     avatar: '/images/avatar.jpg',
     darkAvatar: '/images/avatar-dark.jpg',
     medias: [
-      { link: 'mailto:www.rkiani@gmail.com', icon: 'email' },
+      { link: 'mailto:rkm7232@gmail.com', icon: 'email' },
       { link: 'https://github.com/the-this-pointer/', icon: 'github' },
+      { link: 'https://the-this-pointer.github.io/my-resume/', icon: 'book' },
     ],
 	beian: 'With ❤️ From Iran',
   beianUrl: 'https://the-this-pointer.github.io',
