@@ -1,0 +1,6 @@
+robotics - motor calc & physics
+electronics
+embedded
+linux commands
+cmake - overloading command
+pcb - kicadtips
